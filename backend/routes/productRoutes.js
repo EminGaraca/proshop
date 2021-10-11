@@ -21,9 +21,7 @@ router.get('/:id', asyncHandler(async(req, res) => {
     if(product) {
         res.json(product)
     } else {
-        console.log("status",res.status)
-        res.status(500).json({ message: 'Product not found'})
-        console.log("status",res.status)
+        throw new Error('Product not found')
     }
 }))
 
